@@ -43,16 +43,20 @@ productos = {
 }
 
 print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
-print("no olvide las promociones que tenemos el dia de hoy :")
 
-for i, val in enumerate(productos.keys):
-    print(f""" {productos}""" )
-for i, val in enumerate(productos.keys):
-    print(f""" {productos}""" )
-for i, val in enumerate(productos.keys):
-    print(f""" {productos}""" )
-for i, val in enumerate(productos.keys):
-    print(f""" {productos}""" )
+
+for i, (key, val) in enumerate(productos.items()):
+    print(f"{i},{key}")
+
+
+
+opcion=int(input("Ingrese la opcion deseada : "))
+
+opcion_deseada=list(productos.keys())[opcion]
+print(f"Usted escogio {opcion_deseada}, por favot escoja su pan preferido :")
+
+for (nombre, precio) in productos[opcion_deseada]:
+    print(f"el producto escogido es {nombre}, con un precio de ${precio}")
 
     
-    
+
