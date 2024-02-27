@@ -45,8 +45,9 @@ productos = {
 print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
 print("no olvide las promociones que tenemos el dia de hoy :")
 
-for i, val in enumerate(productos):
+for i, val in enumerate(productos.keys):
     print(f""" {productos}""" )
+
 
     
     
