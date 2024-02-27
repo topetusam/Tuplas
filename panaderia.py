@@ -49,14 +49,17 @@ for i, (key, val) in enumerate(productos.items()):
     print(f"{i},{key}")
 
 
-
 opcion=int(input("Ingrese la opcion deseada : "))
 
 opcion_deseada=list(productos.keys())[opcion]
 print(f"Usted escogio {opcion_deseada}, por favot escoja su pan preferido :")
 
-for (nombre, precio) in productos[opcion_deseada]:
-    print(f"el producto escogido es {nombre}, con un precio de ${precio}")
-
+for (productoseleccionado) in productos[opcion_deseada]:
+    nombre_producto=productoseleccionado["nombre"]
+    precio_producto=productoseleccionado["precio"]
     
+    
+    print(f"el producto escogido es {nombre_producto}, con un precio de $ {precio_producto}.")
+    
+
 
