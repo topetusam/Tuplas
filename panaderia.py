@@ -47,7 +47,12 @@ print("no olvide las promociones que tenemos el dia de hoy :")
 
 for i, val in enumerate(productos.keys):
     print(f""" {productos}""" )
-
+for i, val in enumerate(productos.keys):
+    print(f""" {productos}""" )
+for i, val in enumerate(productos.keys):
+    print(f""" {productos}""" )
+for i, val in enumerate(productos.keys):
+    print(f""" {productos}""" )
 
     
     
