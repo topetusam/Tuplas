@@ -35,9 +35,9 @@ productos = {
     ],
     "Promociones": {
         "Oferta Especial": (
-            {"nombre": "Pan Especial", "precio": 9.99},
-            {"nombre": "Descuento en Postres", "precio": 2.00},
-            {"nombre": "Combo Salado y Dulce", "precio": 18.99}
+            {"nombre": "Pan Especial", "precio": 10000},
+            {"nombre": "Descuento en Postres", "precio": 2000},
+            {"nombre": "Combo Salado y Dulce", "precio": 1000}
         )
     }
 }
@@ -52,14 +52,33 @@ for i, (key, val) in enumerate(productos.items()):
 opcion=int(input("Ingrese la opcion deseada : "))
 
 opcion_deseada=list(productos.keys())[opcion]
+
 print(f"Usted escogio {opcion_deseada}, por favot escoja su pan preferido :")
 
-for (productoseleccionado) in productos[opcion_deseada]:
+for i, productoseleccionado in enumerate(productos[opcion_deseada]):
     nombre_producto=productoseleccionado["nombre"]
     precio_producto=productoseleccionado["precio"]
+    print(f"{i}{nombre_producto}, con un precio de $ {precio_producto}.")
     
+
+productosel=int(input("Que producto desea de la lista :"))
+
+producto_elegido=productos[opcion_deseada][productosel]
+
+producto_elegido_nombre= producto_elegido["nombre"]
+producto_elegido_precio= producto_elegido["precio"]
+print(f"usted escogio {producto_elegido_nombre}, con un precio de ${producto_elegido_precio}")
+
+dinero = int(input("Con cuanto va a pagar? :"))
+
+if dinero >= precio_producto:
+    cambio = dinero - precio_producto
+    print(f"Le sobran  ${cambio} :")
+else:
+    print("No tiene suficiente dinero")
     
-    print(f"el producto escogido es {nombre_producto}, con un precio de $ {precio_producto}.")
+
+
     
 
 
