@@ -42,43 +42,35 @@ productos = {
     }
 }
 
-print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
+while True:
+    print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
 
+    for i, (key, val) in enumerate(productos.items()):
+        print(f"{i},{key}")
+    opcion=int(input("Ingrese la opcion deseada : "))
+    opcion_deseada=list(productos.keys())[opcion]
 
-for i, (key, val) in enumerate(productos.items()):
-    print(f"{i},{key}")
+    print(f"Usted escogio {opcion_deseada}, por favor escoja su pan preferido :")
 
+    for i, productoseleccionado in enumerate(productos[opcion_deseada]):
+        nombre_producto=productoseleccionado["nombre"]
+        precio_producto=productoseleccionado["precio"]
+        print(f"{i}{nombre_producto}, con un precio de $ {precio_producto}.")
 
-opcion=int(input("Ingrese la opcion deseada : "))
+    productosel=int(input("Que producto desea de la lista :"))
 
-opcion_deseada=list(productos.keys())[opcion]
+    producto_elegido=productos[opcion_deseada][productosel]
 
-print(f"Usted escogio {opcion_deseada}, por favot escoja su pan preferido :")
+    producto_elegido_nombre= producto_elegido["nombre"]
+    producto_elegido_precio= producto_elegido["precio"]
+    print(f"Usted escogió {producto_elegido_nombre}, con un precio de ${producto_elegido_precio}")
 
-for i, productoseleccionado in enumerate(productos[opcion_deseada]):
-    nombre_producto=productoseleccionado["nombre"]
-    precio_producto=productoseleccionado["precio"]
-    print(f"{i}{nombre_producto}, con un precio de $ {precio_producto}.")
-    
+    dinero = int(input("Con cuanto va a pagar? :"))
 
-productosel=int(input("Que producto desea de la lista :"))
+    if dinero >= precio_producto:
+        cambio = dinero - producto_elegido_precio
+        print(f"Le sobran ${cambio}")
+    else:
+        print("No tiene suficiente dinero")
 
-producto_elegido=productos[opcion_deseada][productosel]
-
-producto_elegido_nombre= producto_elegido["nombre"]
-producto_elegido_precio= producto_elegido["precio"]
-print(f"usted escogio {producto_elegido_nombre}, con un precio de ${producto_elegido_precio}")
-
-dinero = int(input("Con cuanto va a pagar? :"))
-
-if dinero >= precio_producto:
-    cambio = dinero - precio_producto
-    print(f"Le sobran  ${cambio} :")
-else:
-    print("No tiene suficiente dinero")
-    
-
-
-    
-
-
+    otroproducto=input("Desea comprar otro producto? s/n : ").lower()
