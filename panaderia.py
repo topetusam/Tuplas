@@ -77,5 +77,5 @@ while True:
 
     otroproducto=input("Desea comprar otro producto? s/n : ").lower()
     if otroproducto == 'n':
-        print("Gracias por su compra!")
+        print("Gracias por su compra!, vuelva pronto")
         break
