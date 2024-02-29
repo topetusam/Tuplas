@@ -46,7 +46,8 @@ while True:
     print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
 
     for i, (key, val) in enumerate(productos.items()):
-        print(f"{i},{key}")
+        if (key!="Promociones"):
+            print(f"{i} ,{key},")
     opcion=int(input("Ingrese la opcion deseada : "))
     opcion_deseada=list(productos.keys())[opcion]
 
@@ -55,7 +56,7 @@ while True:
     for i, productoseleccionado in enumerate(productos[opcion_deseada]):
         nombre_producto=productoseleccionado["nombre"]
         precio_producto=productoseleccionado["precio"]
-        print(f"{i}{nombre_producto}, con un precio de $ {precio_producto}.")
+        print(f"{i} {nombre_producto}, con un precio de $ {precio_producto}.")
 
     productosel=int(input("Que producto desea de la lista :"))
 
@@ -66,11 +67,15 @@ while True:
     print(f"Usted escogió {producto_elegido_nombre}, con un precio de ${producto_elegido_precio}")
 
     dinero = int(input("Con cuanto va a pagar? :"))
+    
 
-    if dinero >= precio_producto:
+    if dinero >= producto_elegido_precio:
         cambio = dinero - producto_elegido_precio
         print(f"Le sobran ${cambio}")
     else:
         print("No tiene suficiente dinero")
 
     otroproducto=input("Desea comprar otro producto? s/n : ").lower()
+    if otroproducto == 'n':
+        print("Gracias por su compra!")
+        break
