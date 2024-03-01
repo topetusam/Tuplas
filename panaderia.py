@@ -41,7 +41,7 @@ productos = {
         )
     }
 }
-
+encontrado= False
 while True:
     print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
 
@@ -68,23 +68,28 @@ while True:
     
     dinero = int(input("Con cuanto va a pagar? :"))
     
-    promocion_encontrada= False
     for promo in productos["Promociones"]["Oferta Especial"]:
         if promo["nombre"]==producto_elegido_nombre:
             promonombre= promo["nombre"]
             promodescuento=promo["descuento"]
-            print(f"Hay una promocion para este producto :, {promonombre} , por un valor de promo, {promodescuento}, como usted pago con {dinero} entonces :")
-            precioconpromo=dinero-promodescuento
-            print(f"le sobran: {precioconpromo}")
-            promocion_encontrada = True
+            print(f"Hay una promocion para este producto :, {promonombre} , le descontaremos, {promodescuento}, como usted pago con {dinero}  :")
+            precioconpromo=dinero-(producto_elegido_precio-promodescuento)
+            print(f"le sobran: ${precioconpromo}, Gracias por su compra ")
+            encontrado = True
             break
-            
-        else:
-            print("No tiene suficiente dinero")
-         
-    if not promocion_encontrada:
-        print("no hay promocion para este producto")
         
+    if encontrado:
+        otroproducto1=input("Desea comprar otro producto? s/n : ").lower()
+        if otroproducto1 == 'n':
+            print("Gracias por su compra!, vuelva pronto")     
+            break   
+        else:
+            encontrado=False
+            
+            continue
+            
+
+
     
     if dinero >= producto_elegido_precio:
         cambio = dinero - producto_elegido_precio
