@@ -37,14 +37,16 @@ productos = {
         "Oferta Especial": (
             {"nombre": "Fresas con crema", "descuento": 4000},
             {"nombre": "Pan de centeno", "descuento": 4500},
-            {"nombre": "Pan de almendra", "descuento": 13000}
+            {"nombre": "Pan de almendra", "descuento": 6000}
         )
     }
 }
+
 encontrado= False
+#Se inicia un while para que se reinicie el sistema cada vez que el usuario elija si quiere otro producto o no 
 while True:
     print("Que desea hoy, Pan Dulce, Pan salado o algun Postre? :")
-
+#se enlistan los productos disponibles
     for i, (key, val) in enumerate(productos.items()):
         if (key!="Promociones"):
             print(f"{i} ,{key},")
@@ -52,7 +54,7 @@ while True:
     opcion_deseada=list(productos.keys())[opcion]
 
     print(f"Usted escogio {opcion_deseada}, por favor escoja su pan preferido :")
-
+#se enlistan  las opciones del producto elegido
     for i, productoseleccionado in enumerate(productos[opcion_deseada]):
         nombre_producto=productoseleccionado["nombre"]
         precio_producto=productoseleccionado["precio"]
@@ -67,6 +69,7 @@ while True:
     print(f"Usted escogió {producto_elegido_nombre}, con un precio de ${producto_elegido_precio}")
     
     dinero = int(input("Con cuanto va a pagar? :"))
+#se aplican las promociones si el producto que se escogio tiene una
     
     for promo in productos["Promociones"]["Oferta Especial"]:
         if promo["nombre"]==producto_elegido_nombre:
@@ -77,7 +80,7 @@ while True:
             print(f"le sobran: ${precioconpromo}, Gracias por su compra ")
             encontrado = True
             break
-        
+ #se haced la condicion para calcular los vueltos del usuario y preguntar si quiere otro producto o no        
     if encontrado:
         otroproducto1=input("Desea comprar otro producto? s/n : ").lower()
         if otroproducto1 == 'n':
